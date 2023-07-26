@@ -1,0 +1,62 @@
+openapi: 3.0.3
+info:
+  title: Swagger Petstore - OpenAPI 3.0
+  description: This is API
+  contact:
+    email: wafinanurul@gmail.com
+  version: 1.0.0
+servers:
+  - url: https://api/v1/
+tags:
+  - name: update
+    description: Update data users
+    externalDocs:
+      description: Find out more
+      url: http:https://api/v1/:id
+paths:
+  /update:
+    put:
+      tags:
+        - update
+      summary: Update an existing player
+      description: Update an existing player by Id
+      operationId: updatePlayer
+       requestBody:
+        description: Optional description in *Markdown*
+        required: true
+        content:
+          application/json:
+        description: Update data of player by Id
+        produces:
+          application/json
+        required: true
+      responses:
+        '200':
+          description: Successful operation
+          content:
+            application/json:
+              schema: 
+                type: array          
+              items:
+                type: object
+              proerties: 
+                id:
+                  type: integer
+                  example: 1
+                username:
+                  type: string
+                  example: "Player1"
+                email:
+                 type: string
+                 example: "Player1@gmail.com"
+                password:
+                 type: string
+                 example: 12345
+                experience:
+                type: integer
+                example: 2
+                    
+        '404':
+          description: Not Found
+        '505':
+          description: Failed to Update
